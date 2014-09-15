@@ -38103,7 +38103,7 @@ if (controlsActive) {
 
 audioController = new AudioController();
 
-stream = new Stream('/audio/stilllife.mp3', audioController);
+stream = new Stream('audio/stilllife.mp3', audioController);
 
 init = function() {
   beard = new Beard(scene, audioController, photoTexture, clock);
@@ -38296,7 +38296,11 @@ Beard = (function() {
   };
 
   Beard.prototype.drop = function() {
-    return this.dropped = true;
+    return setTimeout((function(_this) {
+      return function() {
+        return _this.dropped = true;
+      };
+    })(this), 500);
   };
 
   Beard.prototype.createWriggler = function(point) {
@@ -38333,7 +38337,7 @@ Beard = (function() {
       opacity: this.photoMesh.material.opacity
     };
     fsd = {
-      opacity: 0.8
+      opacity: 0.6
     };
     return photoTween = new TWEEN.Tween(csd).to(fsd, time).onUpdate((function(_this) {
       return function() {
