@@ -38374,7 +38374,7 @@ Landscape = (function() {
     this.texture.repeat.set(10, 10);
     mountainGeo = new THREE.SphereGeometry(5000, 16, 16);
     mountainMat = new THREE.MeshPhongMaterial({
-      side: THREE.DoubleSide,
+      side: THREE.BackSide,
       map: this.texture,
       bumpMap: this.texture,
       bumpScale: 3,
